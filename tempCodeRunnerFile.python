@@ -1,0 +1,17 @@
+def maze(cr, cc, er, ec):
+    if cr == er and cc == ec:
+        return 1
+    ways = 0
+    if cr < er:
+        ways += maze(cr + 1, cc, er, ec)
+    if cc < ec:
+        ways += maze(cr, cc + 1, er, ec)
+    return ways
+
+def main():
+    n, m = 5, 5
+    total_ways = maze(1, 1, n, m)
+    print(f"No. of ways to reach end point is {total_ways}")
+
+if __name__ == "__main__":
+    main()
